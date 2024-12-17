@@ -1,8 +1,7 @@
-function [estavel, polos_lado_direito, matriz_resultado] = routh(coeficientes)
+function [estavel, polos_lado_direito,polos_lado_esquerdo, matriz_resultado] = routh(coeficientes)
 
     linhas = length(coeficientes);
     colunas = ceil(length(coeficientes) / 2);
-
 
     matriz = zeros(linhas, colunas);
     k = 1;
@@ -30,7 +29,7 @@ function [estavel, polos_lado_direito, matriz_resultado] = routh(coeficientes)
                 (matriz(LINHA_A, 1) * matriz(LINHA_D, j + 1))) / (matriz(LINHA_D, 1));
 
             if N == 0
-                matriz(posicao_matriz, j) = 1e-6; 
+                matriz(posicao_matriz, j) = 1e-6;
             else
                 matriz(posicao_matriz, j) = N;
             end
@@ -53,12 +52,12 @@ function [estavel, polos_lado_direito, matriz_resultado] = routh(coeficientes)
         end
     end
 
-    SISTEMAESTAVEL = true;
+    SISTEMAESTAVEL = 1;
     POLOS_LADO_DIREITO = 0;
 
     for i = 1:linhas - 1
         if matriz(i, 1) < 0
-            SISTEMAESTAVEL = false;
+            SISTEMAESTAVEL = 0;
         end
         if (matriz(i, 1) < 0 && matriz(i + 1, 1) > 0) || ...
            (matriz(i, 1) > 0 && matriz(i + 1, 1) < 0)
@@ -68,5 +67,7 @@ function [estavel, polos_lado_direito, matriz_resultado] = routh(coeficientes)
 
     estavel = SISTEMAESTAVEL;
     polos_lado_direito = POLOS_LADO_DIREITO;
+    POLOS_LADO_ESQUERDO = (length(coeficientes) - 1) - POLOS_LADO_DIREITO ;
+    polos_lado_esquerdo = POLOS_LADO_ESQUERDO;
     matriz_resultado = matriz;
 end
