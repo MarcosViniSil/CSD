@@ -1,0 +1,137 @@
+pkg load signal
+
+% ----------- 1 -----------
+m = 1;
+b = 2;
+k = 3;
+num = [ 1 ];
+den = [ m b k];
+[A, B, C, D] = tf2ss (num, den);
+
+
+[numA, denA] = ss2tf(A, B, C, D);
+disp("matriz A - 1");
+disp(A);
+disp("matriz B - 1");
+disp(B);
+disp("matriz C - 1");
+disp(C);
+disp("matriz D - 1");
+disp(D);
+disp("\n \n");
+% ----------- 1 -----------
+
+% ----------- 2 -----------
+num = [ 1 ];
+den = [ 1 3 2];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A - 2");
+disp(A);
+disp("matriz B - 2");
+disp(B);
+disp("matriz C - 2");
+disp(C);
+disp("matriz D - 2");
+disp(D);
+disp("\n \n");
+% ----------- 2 -----------
+
+% ----------- 3 - a -----------
+num = [ 1 ];
+den = [ 1 2 3];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - a");
+disp(A);
+disp("matriz B 3 - a");
+disp(B);
+disp("matriz C 3 - a");
+disp(C);
+disp("matriz D 3 - a");
+disp(D);
+disp("\n \n");
+% ----------- 3 - a -----------
+
+% ----------- 3 - b -----------
+num = [ 1 1 ];
+den = [ 1 2 3];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - b");
+disp(A);
+disp("matriz B 3 - b");
+disp(B);
+disp("matriz C 3 - b");
+disp(C);
+disp("matriz D 3 - b");
+disp(D);
+disp("\n \n");
+
+% ----------- 3 - b -----------
+
+
+% ----------- 3 - c -----------
+num = [ 1 7 2 ];
+den = [ 1 9 26 24];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - c");
+disp(A);
+disp("matriz B 3 - c");
+disp(B);
+disp("matriz C 3 - c");
+disp(C);
+disp("matriz D 3 - c");
+disp(D);
+disp("\n \n");
+% ----------- 3 - c -----------
+
+
+% ----------- 3 - d -----------
+num = [ 2 1 ];
+den = [ 1 7 9];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - d");
+disp(A);
+disp("matriz B 3 - d");
+disp(B);
+disp("matriz C 3 - d");
+disp(C);
+disp("matriz D 3 - d");
+disp(D);
+disp("\n \n");
+% ----------- 3 - d -----------
+
+% ----------- 3 - e -----------
+num = [ 30 ];
+den = [ 1 8 9 6 1 30];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - e ");
+disp(A);
+disp("matriz B 3 - e ");
+disp(B);
+disp("matriz C 3 - e");
+disp(C);
+disp("matriz D 3 - e ");
+disp(D);
+disp("\n \n");
+% ----------- 3 - e -----------
+
+% ----------- 3 - f -----------
+num = [ 1 2 ];
+den = [ 1 3 7 5];
+[A, B, C, D] = tf2ss (num, den);
+
+disp("matriz A 3 - f ");
+disp(A);
+disp("matriz B 3 - f ");
+disp(B);
+disp("matriz C 3 - f");
+disp(C);
+disp("matriz D 3 - f ");
+disp(D);
+disp("\n \n");
+% ----------- 3 - f -----------
