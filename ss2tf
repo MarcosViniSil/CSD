@@ -82,11 +82,12 @@ autovalores = eig(A);
     for i = 1:length(autovalores)
         if real(autovalores(i)) > 0
             SISTEMAESTAVEL = false;
-            POLOS_LADO_ESQUERDO = POLOS_LADO_ESQUERDO + 1
+            POLOS_LADO_DIREITO = POLOS_LADO_DIREITO + 1
+
         endif
 
         if real(autovalores(i)) < 0
-            POLOS_LADO_DIREITO = POLOS_LADO_DIREITO + 1
+            POLOS_LADO_ESQUERDO = POLOS_LADO_ESQUERDO + 1
         endif
 
     end
@@ -115,11 +116,11 @@ autovalores = eig(A);
     for i = 1:length(autovalores)
         if real(autovalores(i)) > 0
             SISTEMAESTAVEL = false;
-            POLOS_LADO_ESQUERDO = POLOS_LADO_ESQUERDO + 1;
+            POLOS_LADO_DIREITO = POLOS_LADO_DIREITO + 1;
         endif
 
         if real(autovalores(i)) < 0
-            POLOS_LADO_DIREITO = POLOS_LADO_DIREITO + 1;
+            POLOS_LADO_ESQUERDO = POLOS_LADO_ESQUERDO + 1;
         endif
 
   end
