@@ -1,0 +1,74 @@
+pkg load control
+numeradorA = [125,250];
+denominadorA = [1,12,53.25,116.25,125];
+
+numeradorB = [33,192,288,128];
+denominadorB = [4,44,172,308,304,128];
+
+numerador2 = [1.8];
+denominador2 = [1, 1.6, 1.8];
+% -------------- 2 - A ----------------
+
+sistemaA = tf(numeradorA, denominadorA);
+polos = pole(sistemaA);
+disp("polos G1(s)")
+disp(polos)
+figure;
+plot(real(polos), imag(polos), 'rx');
+xlabel('Parte Real');
+ylabel('Parte Imaginária');
+title('Polos  2 - G1(s)');
+grid on;
+
+sistemaB = tf(numeradorB, denominadorB);
+polos = pole(sistemaB);
+disp("polos G2(s)")
+disp(polos)
+figure;
+plot(real(polos), imag(polos), 'rx');
+xlabel('Parte Real');
+ylabel('Parte Imaginária');
+title('Polos  2 - G2(s)');
+grid on;
+figure;
+
+% -------------- 2 - A ----------------
+
+% -------------- 2 - F G1(s) ----------------
+figure; % Cria uma nova figura para G1(s)
+step(sistemaA, 'r');
+hold on;
+
+numeradorAaproximada = [12.5];
+denominadorAaproximada = [1, 3, 6.25];
+
+sistemaAapr = tf(numeradorAaproximada, denominadorAaproximada);
+step(sistemaAapr, 'b');
+
+title('G1(s)');
+legend('G1(s) original', 'G1(s) aproximada');
+grid on;
+% -------------- 2 - F G1(s) ----------------
+
+% -------------- 2 - F G2(s) ----------------
+figure;
+step(sistemaB, 'r');
+hold on;
+
+numeradorBaproximada = [1.8];
+denominadorBaproximada = [1, 1.6, 1.8];
+
+sistemaBapr = tf(numeradorBaproximada, denominadorBaproximada);
+step(sistemaBapr, 'b');
+
+title('G2(s)');
+legend('G2(s) original', 'G2(s) aproximada');
+grid on;
+% -------------- 2 - F G2(s) ----------------
+
+
+
+
+
+
+
