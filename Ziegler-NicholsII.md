@@ -88,20 +88,13 @@ Período Crítico TC: 7.8248
    
 </div>
 
-### 2.c.2	Calculo do Ki
-<div align="center">
-  
-   $`K_i=\frac{k_p}{T_i}`$
-   
-</div>
-
 ## 2.d Escreva a FT do controlador
 
 ### 2.d.1 Definição
 
 <div align="center">
   
-   $`Gc(s)=K_p + \frac{k_i}{s}`$
+   $`Gc(s)=K_p + \frac{K_p}{T_is}`$
    
 </div>
 
@@ -109,7 +102,31 @@ Período Crítico TC: 7.8248
 
 <div align="center">
   
-   $`Gc(s)=1.44 + \frac{0.22}{s}`$
+   $`Gc(s)=1.44 + \frac{1.44}{6.52s}`$
+   
+</div>
+
+## 3 Controlador PID
+### 3.1 - Tabela PID
+<div align="center">
+  
+| Tipo de Controlador | Kp    | Ti      | Td       |
+| :---:               | :---: | :---:   |:---:     |
+| PID                 | 1.92  | 3.9124  | 0.9781   |
+
+</div>
+
+### 3.2 - Definição Função de transferência PID
+<div align="center">
+  
+   $`Gc(s)=k_p + \frac{K_p}{t_is} + k_pT_ds`$
+   
+</div>
+
+### 3.3 - Função de transferência PID
+<div align="center">
+  
+   $`Gc(s)=1.92 + \frac{0.49}{s} + 1.878s`$
    
 </div>
 
