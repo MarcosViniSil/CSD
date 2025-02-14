@@ -130,3 +130,59 @@ Período Crítico TC: 7.8248
    
 </div>
 
+## 4 Simulação
+### 4.1 Código
+```matlab
+pkg load control
+pkg load signal
+
+% Definição do sistema original (sem controle)
+num_G = [1];
+den_G = [1 6 5 1];
+G = tf(num_G, den_G);
+T_original = feedback(G, 1);
+% Definição do sistema original (sem controle)
+
+% Controlador PI
+num_PI = [1.44 0.221];
+den_PI = [1 0];
+C_PI = tf(num_PI, den_PI);
+T_PI = feedback(C_PI * G, 1);
+% Controlador PI
+
+% Controlador PID
+num_PID = [1.878 1.92 0.49];
+den_PID = [1 0];
+C_PID = tf(num_PID, den_PID);
+T_PID = feedback(C_PID * G, 1);
+% Controlador PID
+
+t = 0:0.1:50;
+
+y1 = step(T_original, t);
+y2 = step(T_PI, t);
+y3 = step(T_PID, t);
+
+figure;
+hold on;
+plot(t, y1, 'r', 'LineWidth', 1);
+plot(t, y2, 'g', 'LineWidth', 1);
+plot(t, y3, 'b', 'LineWidth', 1);
+
+title("Comparação da Resposta ao Degrau: Sem Controle, PI e PID");
+xlabel("Tempo (s)");
+ylabel("Amplitude");
+legend("Sem Controle", "Com PI", "Com PID"); 
+grid on;
+hold off;
+
+```
+### 4.1 Resultado
+<div align="center">
+  
+![result](https://github.com/user-attachments/assets/93e95828-37ed-4297-81c3-0ba0fc744f78)
+
+
+</div>
+
+
