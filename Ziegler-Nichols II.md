@@ -55,8 +55,24 @@ else
     disp('Não foi possível encontrar um K_cr que gerasse oscilação sustentada.');
 end
 ```
-### 2.a.1 - Resposta
+### 2.a.2 - Resposta
 ```
 Ganho crítico K_cr: 3.2
 ```
+
+## 2.b - Determine o período crítico a partir desta resposta ao degrau oscilatória
+### 2.b.1 - Código
+```matlab
+[pks, locs] = findpeaks(y); % findpeaks retorna a quantidade de picos do sistema e seu respectivo tempo (pks e locs)
+Tc = mean(diff(t(locs))); % t(locs) retorna o tempo de cada pico. diff(t(locs)) calcula as diferenças
+% entre tempos consecutivos dos picos (períodos das oscilações)
+% mean(diff(t(locs))) tira a média dessas diferenças de tempo para obter uma estimativa do período crítico.
+
+disp(["Período Crítico TC: ",num2str(Tc)])
+```
+### 2.b.2 - Resposta
+```
+Período Crítico TC: 7.8248
+```
+
 
