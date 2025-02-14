@@ -74,5 +74,12 @@ disp(["Período Crítico TC: ",num2str(Tc)])
 ```
 Período Crítico TC: 7.8248
 ```
+## 2.c	Calcule os ganhos do PI usando a tabela de Ziegler Nichols
+Tc = 7.8248 
 
+K_cr = 3.2
+| Tipo de Controlador | Kp    | Ti    | Td  |
+| :---:               | :---: | :---: |:---:|
+| PI                  | 1.44  | 5.52  | 0   |
 
+## 2.d Escreva a FT do controlador
